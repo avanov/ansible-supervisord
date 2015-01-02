@@ -13,6 +13,6 @@
     requirements: "{{ item }}"
     state: present
     # see http://supervisord.org/installing.html#installing-via-pip
-    extra_args="--pre"
+    extra_args: "--pre"
   with_items:
     - supervisor
