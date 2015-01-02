@@ -1,4 +1,4 @@
-avanov.avanov.supervisord
+avanov.supervisord
 ==============================
 
 Supervisord role for Ubuntu hosts
@@ -6,7 +6,7 @@ Supervisord role for Ubuntu hosts
 Install it with the following command:
 
 ```bash
-$ ansible-galaxy install avanov.avanov.supervisord
+$ ansible-galaxy install avanov.supervisord
 ```
 
 Requirements
@@ -31,7 +31,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - {role: avanov.avanov.supervisord }
+         - {role: avanov.supervisord }
 
 License
 -------
