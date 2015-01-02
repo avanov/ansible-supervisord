@@ -10,7 +10,7 @@
   sudo: yes
   pip:
     executable: "{{ supervisord_pip_path }}"
-    requirements: "{{ item }}"
+    name: "{{ item }}"
     state: present
     # see http://supervisord.org/installing.html#installing-via-pip
     extra_args: "--pre"
