@@ -16,3 +16,40 @@
     extra_args: "--pre"
   with_items:
     - supervisor
+
+- name: Add init script
+  sudo: yes
+  template:
+    src: "ubuntu_initscript.j2"
+    dest: "{{ supervisord_initscript_path }}"
+    mode: "0755"
+    owner: root
+    group: root
+
+- name: Ensure system config dir exists
+  sudo: yes
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: yes
+    mode: "0775"
+    owner: root
+    group: root
+  with_items:
+    - "{{ supervisord_system_config_dir }}"
+
+- name: Generate configuration file
+  sudo: yes
+  template:
+    src: "supervisord.conf.j2"
+    dest: "{{ supervisord_system_config_path }}"
+    mode: "0644"
+    owner: root
+    group: root
+
+
+- name: Configure supervisord to start at startup
+  service:
+    name: supervisor
+    enabled: yes
+    state: started
