@@ -37,6 +37,7 @@
     group: root
   with_items:
     - "{{ supervisord_system_config_dir }}"
+    - "{{ supervisord_log_dir }}"
 
 - name: Generate configuration file
   sudo: yes
@@ -52,4 +53,4 @@
   service:
     name: supervisor
     enabled: yes
-    state: started
+    state: restarted

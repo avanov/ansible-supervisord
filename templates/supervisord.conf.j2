@@ -10,10 +10,10 @@
 
 [unix_http_server]
 file=/tmp/supervisor.sock   ; (the path to the socket file)
-;chmod=0700                 ; socket file mode (default 0700)
-;chown=nobody:nogroup       ; socket file uid:gid owner
-;username=user              ; (default is no username (open server))
-;password=123               ; (default is no password (open server))
+chmod=0700                 ; socket file mode (default 0700)
+chown=nobody:nogroup       ; socket file uid:gid owner
+username=user              ; (default is no username (open server))
+password=123               ; (default is no password (open server))
 
 ;[inet_http_server]         ; inet (TCP) server disabled by default
 ;port=127.0.0.1:9001        ; (ip_address:port specifier, *:port for all iface)
@@ -21,7 +21,7 @@ file=/tmp/supervisor.sock   ; (the path to the socket file)
 ;password=123               ; (default is no password (open server))
 
 [supervisord]
-logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+logfile={{ supervisord_log_dir }}/supervisord.log ; (main log file;default $CWD/supervisord.log)
 logfile_maxbytes=50MB        ; (max main logfile bytes b4 rotation;default 50MB)
 logfile_backups=10           ; (num of main logfile rotation backups;default 10)
 loglevel=info                ; (log level;default info; others: debug,warn,trace)
@@ -86,6 +86,15 @@ serverurl=unix:///tmp/supervisor.sock ; use a unix:// URL  for a unix socket
 ;stderr_events_enabled=false   ; emit events on stderr writes (default false)
 ;environment=A="1",B="2"       ; process environment additions (def no adds)
 ;serverurl=AUTO                ; override serverurl computation (childutils)
+
+{% for program in supervisord_programs %}
+[program:{{program.name}}]
+{% for key, value in program.items() %}
+{%if key != 'name' %}
+{{key}}={{value}}
+{% endif %}
+{% endfor %}
+{% endfor %}
 
 ; The below sample eventlistener section shows all possible
 ; eventlistener subsection values, create one or more 'real'

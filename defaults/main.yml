@@ -2,6 +2,71 @@
 supervisord_pip_path: /usr/bin/pip
 supervisord_initscript_path: /etc/init.d/supervisor
 supervisord_system_config_dir: /etc/supervisor
+supervisord_log_dir: /var/log/supervisor
 supervisord_system_config_path: "{{ supervisord_system_config_dir }}/supervisord.conf"
 supervisord_supervisord_path: /usr/local/bin/supervisord
 supervisord_supervisorctl_path: /usr/local/bin/supervisorctl
+
+supervisord_programs: [
+    # here's an example of all available options
+#    {
+#        # the program (relative uses PATH, can take args)
+#        command: /bin/cat
+#        # process_name expr (default %(program_name)s)
+#        process_name: "%(program_name)s"
+#        # number of processes copies to start (def 1)
+#        numprocs: "1"
+#        # directory to cwd to before exec (def no cwd)
+#        directory: /tmp
+#        # umask for process (default None)
+#        umask: "022"
+#        # the relative start priority (default 999)
+#        priority: "999"
+#        # start at supervisord start (default: true)
+#        autostart: "true"
+#        # whether/when to restart (default: unexpected)
+#        autorestart: "unexpected"
+#        # number of secs prog must stay running (def. 1)
+#        startsecs: "1"
+#        # max # of serial start failures (default 3)
+#        startretries: "3"
+#        # 'expected' exit codes for process (default 0,2)
+#        exitcodes: "0,2"
+#        # signal used to kill process (default TERM)
+#        stopsignal: "QUIT"
+#        #  max num secs to wait b4 SIGKILL (default 10)
+#        stopwaitsecs: "10"
+#        # send stop signal to the UNIX process group (default false)
+#        stopasgroup: "false"
+#        # SIGKILL the UNIX process group (def false)
+#        killasgroup: "false"
+#        # setuid to this UNIX account to run the program
+#        user: "chrism"
+#        # redirect proc stderr to stdout (default false)
+#        redirect_stderr: "true"
+#        # stdout log path, NONE for none; default AUTO
+#        stdout_logfile: /a/path
+#        # max logfile bytes b4 rotation (default 50MB)
+#        stdout_logfile_maxbytes: "1MB"
+#         # number of stdout logfile backups (default 10)
+#        stdout_logfile_backups: "10"
+#        # number of bytes in 'capturemode' (default 0)
+#        stdout_capture_maxbytes: "1MB"
+#        # emit events on stdout writes (default false)
+#        stdout_events_enabled: "false"
+#        # stderr log path, NONE for none; default AUTO
+#        stderr_logfile: /a/path
+#        # max logfile bytes b4 rotation (default 50MB)
+#        stderr_logfile_maxbytes: "1MB"
+#        # number of stderr logfile backups (default 10)
+#        stderr_logfile_backups: "10"
+#        # number of bytes in 'capturemode' (default 0)
+#        stderr_capture_maxbytes: "1MB"
+#        # emit events on stderr writes (default false)
+#        stderr_events_enabled: "false"
+#        # process environment additions (def no adds)
+#        environment: 'A="1",B="2"'
+#        # override serverurl computation (childutils)
+#        serverurl: "AUTO"
+#    },
+]
