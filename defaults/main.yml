@@ -47,7 +47,7 @@ supervisord_supervisord:
   # (min. avail process descriptors;default 200)
   minprocs: "200"
   # (process file creation umask;default 022)
-  #umask: "022"
+  umask: "022"
   # (default is current user, required if root)
   #user: chrism
   # (supervisord identifier, default is 'supervisor')
