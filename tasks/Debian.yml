@@ -10,12 +10,14 @@
   sudo: yes
   pip:
     executable: "{{ supervisord_pip_path }}"
-    name: "{{ item }}"
+    name: "{{ item.name }}"
+    version: "{{ item.version }}"
     state: present
     # see http://supervisord.org/installing.html#installing-via-pip
     extra_args: "--pre"
   with_items:
-    - supervisor
+    - name: supervisor
+      version: "{{ supervisord_version }}"
 
 - name: Add init script
   sudo: yes
