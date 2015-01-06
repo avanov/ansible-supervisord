@@ -69,7 +69,6 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 ; Groups
 ; ---------------------------------------------------------------
-
 {% for group in supervisord_groups %}
 [group:{{ group.name }}]
 {% for key, value in group.items() %}
