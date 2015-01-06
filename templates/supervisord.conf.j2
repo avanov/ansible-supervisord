@@ -140,6 +140,15 @@ serverurl=unix:///tmp/supervisor.sock ; use a unix:// URL  for a unix socket
 ;programs=progname1,progname2  ; each refers to 'x' in [program:x] definitions
 ;priority=999                  ; the relative start priority (default 999)
 
+{% for group in supervisord_groups %}
+[group:{{group.name}}]
+{% for key, value in group.items() %}
+{%if key != 'name' %}
+{{key}}={{value}}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
 ; The [include] section can just contain the "files" setting.  This
 ; setting can list multiple files (separated by whitespace or
 ; newlines).  It can also contain wildcards.  The filenames are

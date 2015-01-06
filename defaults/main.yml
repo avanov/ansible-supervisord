@@ -70,3 +70,13 @@ supervisord_programs: [
 #        serverurl: "AUTO"
 #    },
 ]
+
+supervisord_groups: [
+    # here's an example of all available options
+#    {
+#        # each refers to 'x' in [program:x] definitions
+#        programs: "progname1,progname2"
+#        # the relative start priority (default 999)
+#        priority=999
+#    },
+]
