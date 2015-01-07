@@ -34,7 +34,7 @@
     path: "{{ item }}"
     state: directory
     recurse: yes
-    mode: "0775"
+    mode: "0755"
     owner: root
     group: root
   with_items:
