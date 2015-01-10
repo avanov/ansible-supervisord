@@ -84,5 +84,5 @@ supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 ; interpreted as relative to this file.  Included files *cannot*
 ; include files themselves.
 
-;[include]
-;files = relative/directory/*.ini
+[include]
+files = conf.d/*.conf

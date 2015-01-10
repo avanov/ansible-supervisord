@@ -39,6 +39,7 @@
     group: root
   with_items:
     - "{{ supervisord_system_config_dir }}"
+    - "{{ supervisord_system_config_confd_dir }}"
     - "{{ supervisord_log_dir }}"
 
 - name: Generate configuration file
@@ -47,8 +48,8 @@
     src: "supervisord.conf.j2"
     dest: "{{ supervisord_system_config_path }}"
     mode: "0644"
-    owner: root
-    group: root
+    owner: "root"
+    group: "root"
 
 
 - name: Configure supervisord to start at startup
